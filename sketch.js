@@ -8,7 +8,6 @@ let video;
 let flippedVideo;
 // To store the classification, almacena las etiquetas, ejm: crema, espejo
 let label = "";
-let confianza = 0;
 
 // Load the model first, se debe ejecutar antes del set up
 function preload() {
@@ -37,7 +36,7 @@ function draw() {
   fill(255);
   textSize(16);
   textAlign(CENTER);
-  text(label, width / 2, height - 4);
+  text("hola", width / 2, height - 4);
 }
 
 // Get a prediction for the current video frame
@@ -52,6 +51,8 @@ function gotResult(results, error) {
     console.error(error);
     return;
   }
+  console.log(results);
+  return;
   // The results are in an array ordered by confidence.
   // console.log(results[0]);
   label = results[0].label;
